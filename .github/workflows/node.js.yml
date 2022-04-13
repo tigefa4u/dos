@@ -35,4 +35,3 @@ jobs:
         S3_SECRET_ACCESS_KEY: ${{secrets.S3_SECRET_ACCESS_KEY}}
         S3_DOWNLOAD_LINK_BASE: ${{secrets.S3_DOWNLOAD_LINK_BASE}}
         ENCRYPT_KEY: ${{secrets.ENCRYPT_KEY}}
-    - run: yarn test
