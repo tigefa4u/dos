@@ -25,7 +25,15 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        cache: 'yarn'
     - run: yarn
     - run: yarn build
+      env:
+        S3_ENDPOINT: ${{secrets.S3_ENDPOINT}}
+        S3_BUCKET: ${{secrets.S3_BUCKET}}
+        S3_ACCESS_KEY_ID: ${{secrets.S3_ACCESS_KEY_ID}}
+        S3_SECRET_ACCESS_KEY: ${{secrets.S3_SECRET_ACCESS_KEY}}
+        S3_DOWNLOAD_LINK_BASE: ${{secrets.S3_DOWNLOAD_LINK_BASE}}
+        ENCRYPT_KEY: ${{secrets.ENCRYPT_KEY}}
+      environment: production
     - run: yarn test
